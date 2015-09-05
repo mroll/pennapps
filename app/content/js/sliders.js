@@ -1,6 +1,6 @@
-var slidersArray = ["k-slider", "r-slider", "v-slider", "t-slider"]
+var slidersArray = ["k-slider", "r-slider", "v-slider", "t-slider"];
 for (var i = 0; i < slidersArray.length; i++) {
-    $("#slider-container").append("<div class='col-md-1' style='width: 12%'><input id=" +
+    $("#slider-container").append("<div class='col-md-1 clearfix' style='width: 12%; margin-bottom: 10px;'><input id=" +
         slidersArray[i] + " type='text' /></div>");
 }
 
@@ -52,3 +52,5 @@ $("#t-slider").slider({
     },
     reversed: true
 });
+
+//<br /><h5><span class='label label-default'>New</span></h5>
