@@ -34,13 +34,36 @@
       var sliderIds = ["K", "t", "v", "r"];
 
       var sliderChange = function(event, ui) {
+
         for (var i=0; i<sliderIds.length; i++) {
           var sliderName = "#" + sliderIds[i] + "-slider";
-          console.log($(sliderName).value());
+          console.log($(sliderName).slider("value"));
         }
+
       };
 
       $( "#K-slider" ).slider({
+          orientation: "vertical",
+          min: 0,
+          max: 100,
+          change: sliderChange
+      });
+
+      $( "#t-slider" ).slider({
+          orientation: "vertical",
+          min: 0,
+          max: 100,
+          change: sliderChange
+      });
+
+      $( "#v-slider" ).slider({
+          orientation: "vertical",
+          min: 0,
+          max: 100,
+          change: sliderChange
+      });
+
+      $( "#r-slider" ).slider({
           orientation: "vertical",
           min: 0,
           max: 100,
