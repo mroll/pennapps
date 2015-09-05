@@ -1,9 +1,3 @@
-var slidersArray = ["k-slider", "r-slider", "v-slider", "t-slider"];
-for (var i = 0; i < slidersArray.length; i++) {
-    $("#slider-container").append("<div class='col-md-1 clearfix' style='width: 12%; margin-bottom: 10px;'><input id=" +
-        slidersArray[i] + " type='text' /></div>");
-}
-
 $("#k-slider").slider({
     id: "dataTrack",
     min: 0,
@@ -29,6 +23,8 @@ $("#r-slider").slider({
         return 'Current value: ' + value;
     },
     reversed: true
+}).on('slideStop', function (ev) {
+    changeFunc();
 });
 $("#v-slider").slider({
     id: "dataTrack",
@@ -41,6 +37,8 @@ $("#v-slider").slider({
         return 'Current value: ' + value;
     },
     reversed: true
+}).on('slideStop', function (ev) {
+    changeFunc();
 });
 $("#t-slider").slider({
     id: "dataTrack",
@@ -53,6 +51,8 @@ $("#t-slider").slider({
         return 'Current value: ' + value;
     },
     reversed: true
+}).on('slideStop', function (ev) {
+    changeFunc();
 });
 
 function changeFunc() {

@@ -19,7 +19,7 @@
 
 <body>
     <script type="text/javascript">
-        $('#ticker').submit(function () {
+        $("#ticker").submit(function () {
             // grab the input parameters
             var values = $(this).serialize(); // gets the ticker
             //console.log(values);
@@ -45,8 +45,22 @@
     <div class="container">
 
         <div class="row">
-            <img src="http://lorempixel.com/g/400/230/technics" style="float:left; margin-right: 75px;" />
-            <span id="slider-container"></span>
+            <img src="http://lorempixel.com/g/400/230/technics" style="float:left; margin-right: 40px;" />
+            <span id="slider-container">
+            <h5><span class="label label-default">New</span></h5>
+            <div class="col-md-1 clearfix" style="width: 13%; margin-bottom: 10px;">
+                <input id="k-slider" type="text" />
+            </div>
+            <div class="col-md-1 clearfix" style="width: 13%; margin-bottom: 10px;">
+                <input id="r-slider" type="text" />
+            </div>
+            <div class="col-md-1 clearfix" style="width: 13%; margin-bottom: 10px;">
+                <input id="v-slider" type="text" />
+            </div>
+            <div class="col-md-1 clearfix" style="width: 13%; margin-bottom: 10px;">
+                <input id="t-slider" type="text" />
+            </div>
+            </span>
         </div>
         <script type="text/javascript" src="content/js/sliders.js"></script>
 
