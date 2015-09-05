@@ -1,6 +1,12 @@
 <html>
 <head>
-<title>Options pricing</title>
+    <title>Options pricing</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <style>#slider { margin: 10px; }  </style>
 </head>
 <body>
   <form action="">
@@ -11,6 +17,36 @@
   </form>
 
   <div id="chartDemoContainer" style="height: 500px; min-width: 500px; margin-bottom: 30px;"></div>
+
+  <div id="K-slider"> 
+  </div>
+
+  <div id="t-slider"> 
+  </div>
+
+  <div id="v-slider"> 
+  </div>
+
+  <div id="r-slider"> 
+  </div>
+  
+  <script>
+      var sliderIds = ["K", "t", "v", "r"];
+
+      var sliderChange = function(event, ui) {
+        for (var i=0; i<sliderIds.length; i++) {
+          var sliderName = "#" + sliderIds[i] + "-slider";
+          console.log($(sliderName).value());
+        }
+      };
+
+      $( "#K-slider" ).slider({
+          orientation: "vertical",
+          min: 0,
+          max: 100,
+          change: sliderChange
+      });
+  </script>
   
 </body>
 </html>
