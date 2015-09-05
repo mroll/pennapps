@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="content/css/bootstrap.min.css">
+    <link href="content/css/bootstrap-slider.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <input id="ex6" type="text" data-slider-min="0" data-slider-max="1 data-slider-step=" 1 " data-slider-value=" " /&t <span id="ex6CurrentSliderValLabel ">Current Slider Value: <span id="ex6SliderVal ">0</span></span>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
+    <script type="text/javascript " src="content/js/bootstrap.min.js "></script>
+    <script type="text/javascript " src="content/js/jquery.min.js "></script>
+    <script type="text/javascript " src="content/js/bootstrap-slider.js "></script>
+
+    <script>
+        $("#ex6 ").slider();
+        $("#ex6 ").on("slide ", function (slideEvt) {
+            $("#ex6SliderVal ").text(slideEvt.value);
+        });
+    </script>
+
+</body>
+
+</html>
+<meta name="viewport " content="width=device-width, initial-scale=1.0 ">
