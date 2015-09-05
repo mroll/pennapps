@@ -12,17 +12,23 @@
 
 <body>
 
-    <input id="ex6" type="text" data-slider-min="0" data-slider-max="1 data-slider-step=" 1 " data-slider-value=" " /&t <span id="ex6CurrentSliderValLabel ">Current Slider Value: <span id="ex6SliderVal ">0</span></span>
+    <input class="slider" id="slider" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
     <script type="text/javascript " src="content/js/bootstrap.min.js "></script>
     <script type="text/javascript " src="content/js/jquery.min.js "></script>
     <script type="text/javascript " src="content/js/bootstrap-slider.js "></script>
 
     <script>
-        $("#ex6 ").slider();
-        $("#ex6 ").on("slide ", function (slideEvt) {
-            $("#ex6SliderVal ").text(slideEvt.value);
+        var slider1 = $("input.slider").slider({
+            formatter: function (value) {
+                return 'Current value: ' + value;
+            }
         });
+        var value = slider1.slider('getValue');
+        slider1
+            .setValue('setValue', 5)
+            .setValue('setValue', 7);
     </script>
 
 </body>
