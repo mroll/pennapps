@@ -151,7 +151,7 @@ Markit.InteractiveChartApi.prototype.render = function(data) {
             offset: 0,
             lineWidth: 2
         }],
-        
+
         series: [{
             type: 'candlestick',
             name: this.symbol,
