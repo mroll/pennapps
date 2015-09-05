@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="content/css/bootstrap.min.css">
+    <link href="content/css/bootstrap-slider.css" rel="stylesheet">
+</head>
+
+<body>
+    <div style="margin: 50px 0 0 100px">
+        <input id="ex17b" type="text" />
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
+    <script type="text/javascript " src="content/js/bootstrap.min.js "></script>
+    <script type="text/javascript " src="content/js/jquery.min.js "></script>
+    <script type="text/javascript " src="content/js/bootstrap-slider.js "></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" src="js/purl.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script type="text/javascript" src="js/InteractiveChartApi.js"></script>
+
+    <script>
+        $("#ex17b").slider({
+            min: 0,
+            max: 10,
+            value: 0,
+            orientation: 'vertical',
+            tooltip_position: 'left',
+            formatter: function (value) {
+                return 'Current value: ' + value;
+            },
+            reversed: true
+        });
+    </script>
+
+</body>
+
+</html>
+<meta name="viewport " content="width=device-width, initial-scale=1.0 ">
