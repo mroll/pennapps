@@ -2,3 +2,20 @@
         background: #e5e5ff;
     }
 }
+
+.slider {
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+.show-on-submit {
+    display: none;
+}
+
+.dynamic-prices {
+    margin: 20px;
+}
+
+.chart {
+    margin: 25px;
+}

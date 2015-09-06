@@ -15,12 +15,9 @@ proc ::wibble::optimumprices { state } {
     set v [dict? $state request post v {}]
     set r [dict? $state request post r {}]
 
-    set res  [::bscalc::optimum-prices $S $K $t $v $r]
-
-    dict set state response content call [lindex $res 0]
-    dict set state response content put  [lindex $res 1]
-
+    dict set state response content [::bscalc::optimum-prices $S $K $t $v $r]
     dict set state response status 200
+
     sendresponse [dict? $state response]
 }
 
@@ -38,14 +35,18 @@ proc ::wibble::chart { state } {
     sendresponse [dict? $state response]
 }
 
-proc ::wibble::feedme { state } {
-    set data {{hello "three" blind ["mice"]}}
+proc ::wibble::quote { state } {
+    set symbol [dict? $state request post symbol {}]
 
+    set url http://dev.markitondemand.com/Api/v2/Quote/json
+    set res [::http::data [::http::geturl $url -query symbol=$symbol]]
+
+    dict set state response content $res
     dict set state response status 200
-    dict set state response content $data
+
     sendresponse [dict? $state response]
 }
 
 ::wibble::handle    /optimumprices  optimumprices root $root
 ::wibble::handle    /chart          chart         root $root
-::wibble::handle    /feedme         feedme        root $root
+::wibble::handle    /quote          quote        root $root

@@ -23,51 +23,52 @@
         <input id="symbol" type="text">
         <input type="submit">
     </form>
-    <div id="chartDemoContainer" style="height: 500px; min-width: 500px; margin-bottom: 30px;"></div>			
+    <div display="none" class="show-on-submit chart" id="chartDemoContainer"></div>			
 
     <script>
         $("#ticker").submit(function (e) {
-                console.log("calling the post");
-            //$.post("chart", "symbol=" + $("#symbol").val(), function(data) {
-            //    //console.log(data); 
-            //    render(data);                    
-            //        });
+            $(".show-on-submit").css("display", "block");
+
+            currentPrice(function(S) {
+                $("#k-slider").slider('setAttribute', 'min', 0);
+                $("#k-slider").slider('setAttribute', 'max', S + 100);
+            });
+
             var sym = $("#symbol").val();
 		    var dur =  3650;
 		
-		new Markit.InteractiveChartApi(sym, dur);
-                e.preventDefault();
+		    new Markit.InteractiveChartApi(sym, dur);
+            e.preventDefault();
         });
-
     </script>
 
     <div class="container">
-
-        <div class="row">
-            <textarea id="call">
-                testing call
-            </textarea>
-            <textarea id="put">
-                testing put
-            </textarea>
+        <div class="row show-on-submit">
             <span id="slider-container">
-            <h5><span class="label label-default">New</span></h5>
             <div class="col-md-1 clearfix" style="width: 13%; margin-bottom: 10px;">
-                <input id="k-slider" type="text" />
+                <input class="slider" id="k-slider" /><br /><br />
+                <span>Strike Price</span>
             </div>
             <div class="col-md-1 clearfix" style="width: 13%; margin-bottom: 10px;">
-                <input id="r-slider" type="text" />
+                <input id="r-slider" type="text" /><br /><br />
+                <span>Time To Expiration</span>
             </div>
             <div class="col-md-1 clearfix" style="width: 13%; margin-bottom: 10px;">
-                <input id="v-slider" type="text" />
+                <input id="v-slider" type="text" /><br /><br />
+                <span>Volatility</span>
             </div>
             <div class="col-md-1 clearfix" style="width: 13%; margin-bottom: 10px;">
-                <input id="t-slider" type="text" />
+                <input id="t-slider" type="text" /><br /><br />
+                <span>Risk-Free Rate</span>
             </div>
             </span>
         </div>
-        <script type="text/javascript" src="content/js/sliders.js"></script>
 
+        <div class="col-md-offset-8 dynamic-prices show-on-submit">
+            <span>Optimum Call</span>
+            <span>Optimum Put</span>
+        </div>
+        <script type="text/javascript" src="content/js/sliders.js"></script>
     </div>
 </body>
 
