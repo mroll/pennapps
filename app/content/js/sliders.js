@@ -1,7 +1,7 @@
 $("#k-slider").slider({
     id: "dataTrack",
     value: 0,
-    orientation: 'vertical',
+    orientation: 'horizontal',
     tooltip_position: 'left',
     formatter: function (value) {
         return 'Current value: ' + value;
@@ -13,7 +13,7 @@ $("#k-slider").slider({
         });
     }
 }).on('slideStop', function (ev) {
-    changeFunc();
+    changeFunc("#SliderVal1", "#k-slider");
 });
 
 $("#r-slider").slider({
@@ -21,15 +21,15 @@ $("#r-slider").slider({
     min: 0.001,
     max: 0.999,
     step: 0.001,
-    value: 0,
-    orientation: 'vertical',
+    value: 0.001,
+    orientation: 'horizontal',
     tooltip_position: 'left',
     formatter: function (value) {
         return 'Current value: ' + value;
     },
     reversed: true
 }).on('slideStop', function (ev) {
-    changeFunc();
+    changeFunc("#SliderVal2", "#r-slider");
 });
 
 $("#v-slider").slider({
@@ -37,15 +37,15 @@ $("#v-slider").slider({
     min: 0.001,
     max: 0.999,
     step: 0.001,
-    value: 0,
-    orientation: 'vertical',
+    value: 0.001,
+    orientation: 'horizontal',
     tooltip_position: 'left',
     formatter: function (value) {
         return 'Current value: ' + value;
     },
     reversed: true
 }).on('slideStop', function (ev) {
-    changeFunc();
+    changeFunc("#SliderVal3", "#v-slider");
 });
 
 $("#t-slider").slider({
@@ -53,15 +53,15 @@ $("#t-slider").slider({
     min: 0.001,
     max: 0.999,
     step: 0.001,
-    value: 0,
-    orientation: 'vertical',
+    value: 0.001,
+    orientation: 'horizontal',
     tooltip_position: 'left',
     formatter: function (value) {
         return 'Current value: ' + value;
     },
     reversed: true
 }).on('slideStop', function (ev) {
-    changeFunc();
+    changeFunc("#SliderVal4", "#t-slider");
 });
 
 var currentPrice = function(cc) {
@@ -72,7 +72,7 @@ var currentPrice = function(cc) {
     });
 }
 
-function changeFunc() {
+function changeFunc(spanId, sliderId) {
     currentPrice(function(S) {
         var K = parseFloat($("#k-slider").val());
         var t = parseFloat($("#t-slider").val());
@@ -80,11 +80,14 @@ function changeFunc() {
         var r = parseFloat($("#r-slider").val());
 
         var data = "S=" + S + "&K=" + K + "&t=" + t + "&v=" + v + "&r=" + r;
-        console.log(data);
         
         $.post("optimumprices", data, function(data) {
-            console.log(data);
+            var vals = data.split(" ");
+            $("#optimum-call").text(vals[0]);
+            $("#optimum-put").text(vals[1]);
         });
+
+        $(spanId).text($(sliderId).val());
     });
 }
 
