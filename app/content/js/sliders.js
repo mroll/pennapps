@@ -7,8 +7,8 @@ $("#k-slider").slider({
         return 'Current value: ' + value;
     },
     reversed: true,
-    onshow: function() {
-        currentPrice(function(S) {
+    onshow: function () {
+        currentPrice(function (S) {
             $(this).value(S);
         });
     }
@@ -64,25 +64,28 @@ $("#t-slider").slider({
     changeFunc("#SliderVal4", "#t-slider");
 });
 
-var currentPrice = function(cc) {
+var currentPrice = function (cc) {
     var currentPrice = null;
     var data = "symbol=" + $("#symbol").val();
-    $.post("quote", data, function(data) {
+    $.post("quote", data, function (data) {
         cc(JSON.parse(data)["LastPrice"]);
     });
 }
 
 function changeFunc(spanId, sliderId) {
-    currentPrice(function(S) {
+    currentPrice(function (S) {
         var K = parseFloat($("#k-slider").val());
         var t = parseFloat($("#t-slider").val());
         var v = parseFloat($("#v-slider").val());
         var r = parseFloat($("#r-slider").val());
 
         var data = "S=" + S + "&K=" + K + "&t=" + t + "&v=" + v + "&r=" + r;
-        
-        $.post("optimumprices", data, function(data) {
+
+        $.post("optimumprices", data, function (data) {
             var vals = data.split(" ");
+            var val0 = vals[0];
+            console.log(val0);
+
             $("#optimum-call").text(vals[0]);
             $("#optimum-put").text(vals[1]);
         });

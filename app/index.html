@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PennApps</title>
+    <title>OptiStocks</title>
     <link rel="stylesheet" href="content/css/custom.css" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="content/css/bootstrap-slider.css" rel="stylesheet" />
@@ -22,7 +22,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand">Options Pricing</a>
+                <a class="navbar-brand">OptiStocks</a>
             </div>
             <form class="navbar-form navbar-left" id="ticker" role="search" style="margin-bottom: 0">
                 <div class="form-group">
@@ -40,51 +40,62 @@
                     $("#ticker").submit(function (e) {
                         $(".show-on-submit").css("display", "block");
 
-                        currentPrice(function(S) {
+                        currentPrice(function (S) {
                             $("#k-slider").slider('setAttribute', 'min', 0);
                             $("#k-slider").slider('setAttribute', 'max', S + 100);
                         });
 
                         var sym = $("#symbol").val();
-                        var dur =  3650;
-                    
+                        var dur = 3650;
+
                         new Markit.InteractiveChartApi(sym, dur);
                         e.preventDefault();
                     });
                 </script>
             </div>
+            <hr />
             <div class="row clearfix">
-                <div class="col-md-3">
-                    <div class="row">
-                        <label>Optimum Call</label>
-                        <span id="optimum-call" style="margin-bottom: 20px;"></span>
-                    </div>
+                <div class="col-md-12">
+                    <div class="row" style="height: 110px">
+                        <div class="col-md-6">
+                            <h1><strong>Optimum Call: </strong><span id="optimum-call">--</span></h1>
 
-                    <div class="row">
-                        <label>Optimum Put</label>
-                        <span id="optimum-put"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <h1><strong>Optimum Put: </strong><span id="optimum-put">--</span></h1>
+                        </div>
                     </div>
                 </div>
-                <div id="slider-container" class="col-md-8">
+                <hr />
+                <div id="slider-container" class="col-md-12">
                     <div class="row">
-                        <div class="well" style="height: 60px; width: 390px">
-                            <span id="CurrentSliderValLabel">Strike Price: $<span id="SliderVal1">0</span></span>
-                            <input id="k-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.01" data-slider-value="0.01" />
+                        <div class="col-md-6">
+                            <div class="well" style="height: 60px">
+                                <span id="CurrentSliderValLabel">Strike Price: $<span id="SliderVal1">0</span></span>
+                                <input id="k-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.01" data-slider-value="0.01" />
+                            </div>
                         </div>
-                        <div class="well" style="height: 60px; width: 390px">
-                            <span id="CurrentSliderValLabel">Volatility: <span id="SliderVal2">0</span>%</span>
-                            <input id="r-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.01" data-slider-value="0.01" />
+                        <div class="col-md-6">
+                            <div class="well" style="height: 60px">
+                                <span id="CurrentSliderValLabel">Volatility: <span id="SliderVal2">0</span>%</span>
+                                <input id="r-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.01" data-slider-value="0.01" />
+                            </div>
                         </div>
+
                     </div>
 
                     <div class="row">
-                        <div class="well" style="height: 60px; width: 390px">
-                            <span id="CurrentSliderValLabel">RF-Rate: <span id="SliderVal3">0</span>%</span>
-                            <input id="v-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.01" data-slider-value="0.01" />
+                        <div class="col-md-6">
+                            <div class="well" style="height: 60px;">
+                                <span id="CurrentSliderValLabel">RF-Rate: <span id="SliderVal3">0</span>%</span>
+                                <input id="v-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.01" data-slider-value="0.01" />
+                            </div>
                         </div>
-                        <div class="well" style="height: 60px; width: 390px">
-                            <span id="CurrentSliderValLabel">Time: <span id="SliderVal4">0</span>%</span>
-                            <input id="t-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.01" data-slider-value="0.01" />
+                        <div class="col-md-6">
+                            <div class="well" style="height: 60px;">
+                                <span id="CurrentSliderValLabel">Time: <span id="SliderVal4">0</span>%</span>
+                                <input id="t-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.01" data-slider-value="0.01" />
+                            </div>
                         </div>
                     </div>
 

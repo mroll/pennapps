@@ -1,6 +1,5 @@
 #dataTrack .slider-track-low {
-        background: #e5e5ff;
-    }
+    background: #e5e5ff;
 }
 
 .slider {
@@ -18,4 +17,24 @@
 
 .chart {
     margin: 25px;
+}
+
+.slider.slider-horizontal {
+    float: right;
+    width: 350px !important;
+}
+
+.slider {
+    padding: 0 !important;
+}
+
+.slider.slider-horizontal .slider-selection,
+.slider.slider-horizontal .slider-track-low,
+.slider.slider-horizontal .slider-track-high {
+    background-color: #ff9900;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    width: 300px;
 }
