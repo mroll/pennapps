@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OptiStocks</title>
+    <title>OptiStock</title>
     <link rel="stylesheet" href="content/css/custom.css" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="content/css/bootstrap-slider.css" rel="stylesheet" />
@@ -18,21 +18,41 @@
 </head>
 
 <body class="bg">
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand">OptiStocks</a>
-            </div>
+    <div class="centered" id="centered-search">
+        <div class="row"><img src="content/img/logo.png" class="displayed" style="
+    margin-left: 123px;
+"></div>
+        <div class="row">
             <form class="navbar-form navbar-left" id="ticker" role="search" style="margin-bottom: 0">
                 <div class="form-group">
-                    <input type="text" id="symbol" class="form-control" placeholder="Ticker...">
+                    <input type="text" id="symbol" class="form-control" placeholder="Enter stock name..." style="width: 350px;">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <br>
+                <div class="row">
+                    <button type="submit" id="btn-submit" class="btn btn-default" style="margin: 10px 3px 0 53px; background-color: #f2f2f2">Search Stock</button>
+                    <a href="http://www.google.com/" class="btn btn-default" role="button" style="margin-top: 10px; background-color: #f2f2f2">I'm Feeling Confused</a>
+                </div>
             </form>
         </div>
-    </nav>
+
+    </div>
+    <script>
+        $("#btn-submit").on('click', function () {
+            $("#centered-search").hide();
+        });
+    </script>
     <div class="container show-on-submit">
+        <div class="row">
+            <img src="content/img/logo-short.png" style="float:left; margin-top: 10px">
+            <form class="navbar-form navbar-left" id="ticker" role="search" style="margin-bottom: 0">
+                <div class="form-group">
+                    <input type="text" id="symbol" class="form-control" placeholder="Enter stock name..." style="width: 350px;">
+                </div>
+
+                <button type="submit" id="btn-submit" class="btn btn-default" style="background-color: #f2f2f2">Search Stock</button>
+
+            </form>
+        </div>
         <div class="container">
             <div class="row">
                 <div id="chartDemoContainer" class="chart"></div>
